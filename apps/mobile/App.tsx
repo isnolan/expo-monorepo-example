@@ -1,22 +1,25 @@
-import { HomeIcon, HomeScreen } from '@acme/feature-home';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import Markdown from 'react-native-markdown-display';
 
-export default function App() {
+const copy = `# h1 Heading 8-)
+
+**This is some bold text!**
+
+This is normal text
+`;
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <HomeIcon style={{ fontSize: 64 }} />
-      <HomeScreen />
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView>
+        <ScrollView contentInsetAdjustmentBehavior="automatic" style={{ height: '100%' }}>
+          <Markdown>{copy}</Markdown>
+        </ScrollView>
+      </SafeAreaView>
+    </>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
