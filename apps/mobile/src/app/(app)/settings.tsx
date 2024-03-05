@@ -13,17 +13,14 @@ import { Github, Rate, Share, Support, Website } from '@/ui/icons';
 export default function Settings() {
   const signOut = useAuth.use.signOut();
   const { colorScheme } = useColorScheme();
-  const iconColor =
-    colorScheme === 'dark' ? colors.neutral[400] : colors.neutral[500];
+  const iconColor = colorScheme === 'dark' ? colors.neutral[400] : colors.neutral[500];
   return (
     <>
       <FocusAwareStatusBar />
 
       <ScrollView>
         <View className="flex-1 px-4 pt-16 ">
-          <Text className="text-xl font-bold">
-            {translate('settings.title')}
-          </Text>
+          <Text className="text-xl font-bold">{translate('settings.title')}</Text>
           <ItemsContainer title="settings.generale">
             <LanguageItem />
             <ThemeItem />
@@ -35,36 +32,16 @@ export default function Settings() {
           </ItemsContainer>
 
           <ItemsContainer title="settings.support_us">
-            <Item
-              text="settings.share"
-              icon={<Share color={iconColor} />}
-              onPress={() => {}}
-            />
-            <Item
-              text="settings.rate"
-              icon={<Rate color={iconColor} />}
-              onPress={() => {}}
-            />
-            <Item
-              text="settings.support"
-              icon={<Support color={iconColor} />}
-              onPress={() => {}}
-            />
+            <Item text="settings.share" icon={<Share color={iconColor} />} onPress={() => {}} />
+            <Item text="settings.rate" icon={<Rate color={iconColor} />} onPress={() => {}} />
+            <Item text="settings.support" icon={<Support color={iconColor} />} onPress={() => {}} />
           </ItemsContainer>
 
           <ItemsContainer title="settings.links">
             <Item text="settings.privacy" onPress={() => {}} />
             <Item text="settings.terms" onPress={() => {}} />
-            <Item
-              text="settings.github"
-              icon={<Github color={iconColor} />}
-              onPress={() => {}}
-            />
-            <Item
-              text="settings.website"
-              icon={<Website color={iconColor} />}
-              onPress={() => {}}
-            />
+            <Item text="settings.github" icon={<Github color={iconColor} />} onPress={() => {}} />
+            <Item text="settings.website" icon={<Website color={iconColor} />} onPress={() => {}} />
           </ItemsContainer>
 
           <View className="my-8">

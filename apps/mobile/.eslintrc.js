@@ -25,7 +25,7 @@ module.exports = {
     {
       files: ['**/*.ts', '**/*.tsx', '**/*.js'],
       plugins: [
-        '@typescript-eslint',
+        // '@typescript-eslint',
         'unused-imports',
         'tailwindcss',
         'simple-import-sort',

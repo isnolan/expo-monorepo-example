@@ -16,9 +16,7 @@ describe('LoginForm Form ', () => {
   });
 
   it('should display required error when values are empty', async () => {
-    const { getByText, findByText, queryByText, getByTestId } = render(
-      <LoginForm />
-    );
+    const { getByText, findByText, queryByText, getByTestId } = render(<LoginForm />);
 
     const button = getByTestId('login-button');
     expect(queryByText(/Email is required/i)).toBeNull();

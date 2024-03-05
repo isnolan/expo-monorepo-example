@@ -4,11 +4,7 @@ import React, { useCallback, useEffect } from 'react';
 
 import { useAuth, useIsFirstTime } from '@/core';
 import { Pressable, Text } from '@/ui';
-import {
-  Feed as FeedIcon,
-  Settings as SettingsIcon,
-  Style as StyleIcon,
-} from '@/ui/icons';
+import { Feed as FeedIcon, Settings as SettingsIcon, Style as StyleIcon } from '@/ui/icons';
 
 export default function TabLayout() {
   const status = useAuth.use.status();

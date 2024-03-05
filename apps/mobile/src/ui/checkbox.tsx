@@ -1,11 +1,6 @@
 import { MotiView } from 'moti';
 import React, { useCallback } from 'react';
-import {
-  I18nManager,
-  Pressable,
-  type PressableProps,
-  View,
-} from 'react-native';
+import { I18nManager, Pressable, type PressableProps, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
 import colors from '@/ui/colors';
@@ -45,9 +40,7 @@ export const Root = ({
   return (
     <Pressable
       onPress={handleChange}
-      className={`flex-row items-center ${className} ${
-        disabled ? 'opacity-50' : ''
-      }`}
+      className={`flex-row items-center ${className} ${disabled ? 'opacity-50' : ''}`}
       accessibilityState={{ checked }}
       disabled={disabled}
       {...props}
@@ -122,9 +115,7 @@ const CheckboxBase = ({
   return (
     <CheckboxRoot checked={checked} testID={`${testID}`} {...props}>
       <CheckboxIcon checked={checked} />
-      {label ? (
-        <Label text={label} testID={`${testID}-label`} className="pr-2" />
-      ) : null}
+      {label ? <Label text={label} testID={`${testID}-label`} className="pr-2" /> : null}
     </CheckboxRoot>
   );
 };
@@ -152,9 +143,7 @@ export const RadioIcon = ({ checked = false }: IconProps) => {
       transition={{ duration: 100, type: 'timing' }}
     >
       <MotiView
-        className={`h-[10px] w-[10px] rounded-[10px] ${
-          checked && 'bg-primary-300'
-        } `}
+        className={`size-[10px] rounded-[10px] ${checked && 'bg-primary-300'} `}
         from={{ opacity: 0 }}
         animate={{ opacity: checked ? 1 : 0 }}
         transition={{ duration: 50, type: 'timing' }}
@@ -192,9 +181,7 @@ export const Radio = Object.assign(RadioBase, {
 });
 
 export const SwitchIcon = ({ checked = false }: IconProps) => {
-  const translateX = checked
-    ? THUMB_OFFSET
-    : WIDTH - THUMB_WIDTH - THUMB_OFFSET;
+  const translateX = checked ? THUMB_OFFSET : WIDTH - THUMB_WIDTH - THUMB_OFFSET;
 
   const backgroundColor = checked ? colors.primary[300] : colors.charcoal[400];
 

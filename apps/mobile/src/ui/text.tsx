@@ -11,19 +11,9 @@ interface Props extends TextProps {
   tx?: TxKeyPath;
 }
 
-export const Text = ({
-  className = '',
-  style,
-  tx,
-  children,
-  ...props
-}: Props) => {
+export const Text = ({ className = '', style, tx, children, ...props }: Props) => {
   const textStyle = React.useMemo(
-    () =>
-      twMerge(
-        'text-base text-black  dark:text-white  font-jakarta font-normal',
-        className
-      ),
+    () => twMerge('text-base text-black  dark:text-white  font-jakarta font-normal', className),
     [className]
   );
 

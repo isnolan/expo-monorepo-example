@@ -21,9 +21,8 @@ import { Text } from './text';
 const selectTv = tv({
   slots: {
     container: 'mb-4',
-    label: 'text-grey-100 dark:text-neutral-100 text-lg mb-1',
-    input:
-      'mt-0 flex-row items-center justify-center border-[0.5px] border-grey-50 px-3 py-3  rounded-xl',
+    label: 'text-grey-100 mb-1 text-lg dark:text-neutral-100',
+    input: 'border-grey-50 mt-0 flex-row items-center justify-center rounded-xl border-[0.5px] p-3',
     inputValue: 'dark:text-neutral-100',
   },
 
@@ -176,21 +175,13 @@ export const Select = (props: SelectProps) => {
     <>
       <View className={styles.container()}>
         {label && <Text className={styles.label()}>{label}</Text>}
-        <TouchableOpacity
-          className={styles.input()}
-          disabled={disabled}
-          onPress={modal.present}
-        >
+        <TouchableOpacity className={styles.input()} disabled={disabled} onPress={modal.present}>
           <View className="flex-1">
             <Text className={styles.inputValue()}>{textValue}</Text>
           </View>
           <CaretDown />
         </TouchableOpacity>
-        {error && (
-          <Text className="text-sm text-danger-300 dark:text-danger-600">
-            {error}
-          </Text>
-        )}
+        {error && <Text className="text-sm text-danger-300 dark:text-danger-600">{error}</Text>}
       </View>
       <Options ref={modal.ref} options={options} onSelect={onSelectOption} />
     </>
@@ -198,9 +189,7 @@ export const Select = (props: SelectProps) => {
 };
 
 // only used with react-hook-form
-export function ControlledSelect<T extends FieldValues>(
-  props: ControlledSelectProps<T>
-) {
+export function ControlledSelect<T extends FieldValues>(props: ControlledSelectProps<T>) {
   const { name, control, rules, onSelect: onNSelect, ...selectProps } = props;
 
   const { field, fieldState } = useController({ control, name, rules });

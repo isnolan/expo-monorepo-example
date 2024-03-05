@@ -34,11 +34,7 @@ export const LanguageItem = () => {
 
   return (
     <>
-      <Item
-        text="settings.language"
-        value={selectedLanguage?.label}
-        onPress={modal.present}
-      />
+      <Item text="settings.language" value={selectedLanguage?.label} onPress={modal.present} />
       <Options
         ref={modal.ref}
         options={langs}

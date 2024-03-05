@@ -17,8 +17,7 @@
     "docs",
     "cli",
     "android",
-    "ios",
-    "lint-staged.config.js"
+    "ios"
   ],
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
 }

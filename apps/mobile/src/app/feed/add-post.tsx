@@ -49,12 +49,7 @@ export default function AddPost() {
         }}
       />
       <View className="flex-1 p-4 ">
-        <ControlledInput
-          name="title"
-          label="Title"
-          control={control}
-          testID="title"
-        />
+        <ControlledInput name="title" label="Title" control={control} testID="title" />
         <ControlledInput
           name="body"
           label="Content"

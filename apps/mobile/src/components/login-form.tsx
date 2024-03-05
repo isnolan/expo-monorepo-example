@@ -36,19 +36,9 @@ export const LoginForm = ({ onSubmit = () => {} }: LoginFormProps) => {
         Sign In
       </Text>
 
-      <ControlledInput
-        testID="name"
-        control={control}
-        name="name"
-        label="Name"
-      />
+      <ControlledInput testID="name" control={control} name="name" label="Name" />
 
-      <ControlledInput
-        testID="email-input"
-        control={control}
-        name="email"
-        label="Email"
-      />
+      <ControlledInput testID="email-input" control={control} name="email" label="Email" />
       <ControlledInput
         testID="password-input"
         control={control}
@@ -57,11 +47,7 @@ export const LoginForm = ({ onSubmit = () => {} }: LoginFormProps) => {
         placeholder="***"
         secureTextEntry={true}
       />
-      <Button
-        testID="login-button"
-        label="Login"
-        onPress={handleSubmit(onSubmit)}
-      />
+      <Button testID="login-button" label="Login" onPress={handleSubmit(onSubmit)} />
     </View>
   );
 };

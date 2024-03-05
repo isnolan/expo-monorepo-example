@@ -49,7 +49,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       },
     ],
     'expo-localization',
-    ["expo-router", { "root": "./src" }],
+    ['expo-router', { root: './src' }],
     [
       'expo-build-properties',
       {

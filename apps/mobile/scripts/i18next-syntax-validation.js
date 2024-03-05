@@ -9,14 +9,10 @@ const validate = (message = '') => {
     (message.includes('{') || message.includes('}')) &&
     !/{{ ?(?:- |\w+?)(, ?)?\w+? ?}}/g.test(message)
   ) {
-    throw new SyntaxError(
-      'Interpolation error. See: https://www.i18next.com/misc/json-format'
-    );
+    throw new SyntaxError('Interpolation error. See: https://www.i18next.com/misc/json-format');
   }
   if (message.includes('$t(') && !/\$t\([\w]+:\w+(?:\.\w+)*\)/g.test(message)) {
-    throw new SyntaxError(
-      'Nesting error. See: https://www.i18next.com/misc/json-format'
-    );
+    throw new SyntaxError('Nesting error. See: https://www.i18next.com/misc/json-format');
   }
 };
 

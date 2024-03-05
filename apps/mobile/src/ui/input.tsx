@@ -1,10 +1,5 @@
 import * as React from 'react';
-import type {
-  Control,
-  FieldValues,
-  Path,
-  RegisterOptions,
-} from 'react-hook-form';
+import type { Control, FieldValues, Path, RegisterOptions } from 'react-hook-form';
 import { useController } from 'react-hook-form';
 import type { TextInput, TextInputProps } from 'react-native';
 import { I18nManager, StyleSheet, View } from 'react-native';
@@ -17,9 +12,9 @@ import { Text } from './text';
 const inputTv = tv({
   slots: {
     container: 'mb-2',
-    label: 'text-grey-100 dark:text-neutral-100 text-lg mb-1',
+    label: 'text-grey-100 mb-1 text-lg dark:text-neutral-100',
     input:
-      'mt-0 border-[0.5px] font-jakarta text-base leading-5 font-[500] px-4 py-3 rounded-xl  bg-neutral-100 border-neutral-300 ',
+      'font-jakarta mt-0 rounded-xl border-[0.5px] border-neutral-300 bg-neutral-100 px-4 py-3 text-base  font-[500] leading-5 ',
   },
 
   variants: {
@@ -53,10 +48,7 @@ export interface NInputProps extends TextInputProps {
   error?: string;
 }
 
-type TRule = Omit<
-  RegisterOptions,
-  'valueAsNumber' | 'valueAsDate' | 'setValueAs'
->;
+type TRule = Omit<RegisterOptions, 'valueAsNumber' | 'valueAsDate' | 'setValueAs'>;
 
 export type RuleType<T> = { [name in keyof T]: TRule };
 export type InputControllerType<T extends FieldValues> = {
@@ -65,9 +57,7 @@ export type InputControllerType<T extends FieldValues> = {
   rules?: TRule;
 };
 
-interface ControlledInputProps<T extends FieldValues>
-  extends NInputProps,
-    InputControllerType<T> {}
+interface ControlledInputProps<T extends FieldValues> extends NInputProps, InputControllerType<T> {}
 
 export const Input = React.forwardRef<TextInput, NInputProps>((props, ref) => {
   const { label, error, ...inputProps } = props;
@@ -101,19 +91,13 @@ export const Input = React.forwardRef<TextInput, NInputProps>((props, ref) => {
           inputProps.style,
         ])}
       />
-      {error && (
-        <Text className="text-sm text-danger-400 dark:text-danger-600">
-          {error}
-        </Text>
-      )}
+      {error && <Text className="text-sm text-danger-400 dark:text-danger-600">{error}</Text>}
     </View>
   );
 });
 
 // only used with react-hook-form
-export function ControlledInput<T extends FieldValues>(
-  props: ControlledInputProps<T>
-) {
+export function ControlledInput<T extends FieldValues>(props: ControlledInputProps<T>) {
   const { name, control, rules, ...inputProps } = props;
 
   const { field, fieldState } = useController({ control, name, rules });

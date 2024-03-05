@@ -68,12 +68,7 @@ const RadioExample = () => {
 const SwitchExample = () => {
   const [active, setActive] = React.useState(false);
   return (
-    <Switch.Root
-      checked={active}
-      onChange={setActive}
-      accessibilityLabel="switch"
-      className="pb-2"
-    >
+    <Switch.Root checked={active} onChange={setActive} accessibilityLabel="switch" className="pb-2">
       <Switch.Icon checked={active} />
       <Switch.Label text="switch" />
     </Switch.Root>
