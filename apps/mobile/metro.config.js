@@ -1,13 +1,12 @@
-// Learn more https://docs.expo.dev/guides/monorepos
 const { getDefaultConfig } = require('expo/metro-config');
+const { withNativeWind } = require('nativewind/metro');
 const { FileStore } = require('metro-cache');
 const path = require('path');
 
 const projectRoot = __dirname;
 const workspaceRoot = path.resolve(projectRoot, '../..');
 
-const config = getDefaultConfig(projectRoot);
-
+const config = getDefaultConfig(__dirname);
 // #1 - Watch all files in the monorepo
 config.watchFolders = [workspaceRoot];
 // #3 - Force resolving nested modules to the folders below
@@ -23,4 +22,5 @@ config.cacheStores = [
   new FileStore({ root: path.join(projectRoot, 'node_modules', '.cache', 'metro') }),
 ];
 
-module.exports = config;
+module.exports = withNativeWind(config, { input: './global.css' });
+
